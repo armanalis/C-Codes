@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    char op;
+    while(1){
+
+        printf("\nEnter the arithmetic operator(if you want to exit press 'x'):"); //asking the user an operator
+        scanf("%c", &op);
+        if ( op=='x') // if the user enters 'x' it should exit the code.
+            exit(0);
+
+        double n1, n2;
+        printf("\nEnter the two numbers:");
+        scanf("%lf %lf", &n1, &n2);
+
+        switch(op){ // controling usage of switch 
+
+            case '+':
+                printf("%.1lf", n1+n2);
+                break;
+            case '-':
+                printf("%.1lf", n1-n2);
+                break;
+            case '*':
+                printf("%.1lf", n1*n2);
+                break;
+            case '/':
+                printf("%.1lf", n1/n2);
+                break;
+
+            default:
+                printf("\nEnter the right operator.\n");
+
+        }
+    printf("\n");
+    }
+}
