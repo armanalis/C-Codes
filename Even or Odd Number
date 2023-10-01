@@ -3,9 +3,9 @@
 void checkEvenOdd(int num){
 
     if (num%2==0)
-    printf("The number is even.");
+        printf("The number is even.");
     else
-    printf("The number is odd.");
+        printf("The number is odd.");
 
 }
 int main() {
