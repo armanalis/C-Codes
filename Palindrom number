@@ -1,1 +1,28 @@
+#include <stdio.h>
 
+void palindrome(int num){
+
+    int reverse, temp;
+    int original = num;
+    while(num != 0){
+        temp = num % 10;
+        reverse = reverse*10 +temp;
+        num = num/10;
+    }
+    if(original == reverse){
+        printf("The number(%d) is a palindrom number.", original);
+    }
+    else{
+        printf("The number(%d) is not a palindrome number.", original);
+    }
+}
+
+int main() {
+
+    int num;
+    printf("Enter the number:");
+    scanf("%d", &num);
+    palindrome(num);
+
+    return 0;
+}
