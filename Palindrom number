@@ -2,7 +2,7 @@
 
 void palindrome(int num){
 
-    int reverse, temp;
+    int reverse = 0, temp;
     int original = num;
     while(num != 0){
         temp = num % 10;
