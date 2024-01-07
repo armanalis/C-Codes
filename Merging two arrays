@@ -34,6 +34,7 @@ int main() {
         scanf("%d ", &arr2[i]);
     }
 
+    // in this line we are dividing the size of arrays by 4 because the sizeof function gives the array size multiplied by int(int*array size).
     merge(arr1, arr2, sizeof(arr1)/4, sizeof(arr2)/4);
 
     return 0;
