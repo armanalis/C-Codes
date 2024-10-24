@@ -1,1 +1,143 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define MAX_Cars 80
+#define MAX_Users 80
+
+typedef struct {
+    int CarID;
+    char model[80];
+    int hourly_rate;
+    int daily_rate;
+    int available;//if car is available then it is 1, if it is not available it equals to 0.
+}car;
+
+typedef struct {
+    char username[80];
+    char password[80];
+}user;
+
+void addCar(struct car *newcar, int *totalcars){
+
+    if(*totalcars>MAX_Cars){
+        printf("Car limit reached!\n");
+        return;
+    }
+
+    struct car new;
+    printf("Add a new car into the system. But first provide some details");
+    printf("\nEnter the car model:");
+    scanf("%c", newcar->model);
+    printf("\nEnter the car ID:");
+    scanf("%d", &newcar->CarID);
+    printf("\nEnter the car rate per hour:");
+    scanf("%d", newcar->hourly_rate);
+    printf("\nEnter the car rate per day:");
+    scanf("%d", newcar->daily_rate);
+    newcar->available = 1;
+
+    newcar[(*totalcars)++] = new;
+    printf("Car added successfully!\n");
+}
+
+void viewCars(){
+
+
+
+
+}
+
+void adminmenu(struct *newcar, int *totalcars){
+    int choice;
+    do{
+        printf("Admin Menu:\n");
+        printf("1. Add Car:\n");
+        printf("2. View Cars:\n");
+        printf("3. Exit\n");
+        printf("3. Enter your choice:\n");
+        scanf("%d", &choice);
+
+        switch(choice){
+            case 1:
+                addCar(&newcar, &totalcars);
+                break;
+            case 2:
+                viewCars();
+                break;
+            case 3:
+                printf("Exiting admin menu.\n");
+                break;
+            default:
+            printf("Invalid choice try again.\n");
+        }
+    }while(choice!=3);
+}
+
+void adminlogin(){
+
+    char username[80], password[80];
+
+    printf("Admin Login\n");
+    printf("username");
+    scanf("%s", username);
+    printf("password");
+    scanf("%s", password);
+
+    if(strcmp(username, "admin") == 0 && strcmp(password, "admin123") == 0){
+        printf("\nAdmin login successful!\n");
+        adminmenu()
+    }
+
+}
+
+void usermenu(){
+
+
+
+
+}
+
+void userlogin(){
+
+
+
+
+
+}
+int main(void) {
+
+     car cars[MAX_Cars];
+     user users[MAX_Users];
+
+    int choice;
+    int totalcars = 0;
+    int totalusers = 0;
+
+    do {
+        printf("\nWelcome to the Car Rental System\n");
+        printf("1. Admin Login\n");
+        printf("2. User Login\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                adminlogin(cars, &totalcars, users, totalusers);
+                break;
+            case 2:
+                userlogin(cars, totalcars, users, totalusers);
+                break;
+            case 3:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid choice! Try again.\n");
+        }
+    } while (choice != 3);
+
+    return 0;
+}
 
