@@ -99,8 +99,8 @@ void sell(struct book *books, int count) {
             }
             return;
         }
-        printf("Book with ID: %d not found.\n", id);
     }
+    printf("Book with ID: %d not found.\n", id);
 }
 
 void update(struct book *books, int count){
@@ -114,8 +114,8 @@ void update(struct book *books, int count){
         if(books[i].ID == id){
             printf("\nEnter new quantity for book ID %d:", id);
             scanf("%d", &quantity);
-            books[i].quantity = quantity;
-            printf("Book quantity updated successfully.\n");
+            books[i].quantity += quantity;
+            printf("Book quantity updated successfully to %d.\n", books[i].quantity);
             return;
         }
     }
