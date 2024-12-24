@@ -13,14 +13,18 @@ void createStack(struct Stack *st) {
     scanf("%d", &st->size);
     st->top=-1;
     st->array = (int *)malloc(st->size * sizeof(int));
+    if (st->array == NULL) {
+        printf("Memory allocation error\n");
+        exit(1);
+    }
 
 }
 
-void displayStack(struct Stack st) {
+void displayStack(struct Stack *st) {
 
     int i;
-    for (i=st.top; i>=0; i++) {
-        printf("%d", st.array[i]);
+    for (i=st->top; i>=0; i--) {
+        printf("%d ", st->array[i]);
     }
     printf("\n");
 
@@ -45,6 +49,7 @@ int pop(struct Stack *st) {
     }
     else {
         x=st->array[st->top];
+        st->top--;
     }
 
     return x;
@@ -58,7 +63,9 @@ int main() {
     push(&st, 20);
     push(&st, 30);
 
-    displayStack(st);
+    displayStack(&st);
+
+    free(st.array);
 
     return 0;
 }
